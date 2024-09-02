@@ -1,8 +1,8 @@
-## RGGS Comparative Genomics 2 — Computational Methods
+# RGGS Comparative Genomics 2 — Computational Methods
 Materials for American Museum of Natural History-Richard Gilder Graduate School course: Comparative Genomics 2 — computational methods. 
 This course takes place from September 5 to December 12, 2024, the AMNH and was run by Rob Desalle, Jose Barba, and Dean Bobo. (Update instructors list).
 
-# Course description
+## Course description
 This project-oriented course introduces students to the computational tools necessary for interpreting modern
 molecular sequencing data. It covers whole genome and transcriptome assembly, comparative analyses using
 both de novo and reference-based methods, and phylogenomic inference. Designed for non-model systems,
