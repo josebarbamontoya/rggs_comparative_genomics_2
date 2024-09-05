@@ -1,4 +1,4 @@
-# Session 1 Outline
+# Session 1 outline
 
 ## Personal introductions
 
