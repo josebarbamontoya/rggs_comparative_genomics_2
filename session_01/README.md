@@ -1,13 +1,11 @@
-#Session 1 Outline
-perro
+# Session 1 Outline
 
-##Personal introductions
-gato
+## Personal introductions
 
-##Course overview
+## Course overview
 
-##Reproducibility and organization in computational biology
+## Reproducibility and organization in computational biology
 
-##Introduction to Unix and Unix-like operating systems
+## Introduction to Unix and Unix-like operating systems
 
-##Basic navigation in the terminal
+## Basic navigation in the terminal
