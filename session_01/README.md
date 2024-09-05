@@ -1,6 +1,8 @@
 #Session 1 Outline
+perro
 
 ##Personal introductions
+gato
 
 ##Course overview
 
