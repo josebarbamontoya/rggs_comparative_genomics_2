@@ -1,7 +1,7 @@
 # RGGS Comparative Genomics 2 — Computational Methods
 Materials for the American Museum of Natural History-Richard Gilder Graduate School course: Comparative Genomics 2 — Computational Methods.
 
-This course is conducted by Rob Desalle, Jose Barba, and Dean Bobo. (Update instructors list). 
+This course is conducted by Rob Desalle, Jose Barba, Jessica Goodhart, and Dean Bobo. (Update instructors list. 
 
 The course takes place on Thursdays from 2:00 to 4:00 PM in the ICG conference room, from September 5 to December 12, 2024.
 
