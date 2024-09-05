@@ -1,6 +1,6 @@
 # Session 1 outline
 
-* ## Personal introductions
+* ## Personal backgrounds and research interests
 
 * ## Course overview
 
