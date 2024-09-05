@@ -1,7 +1,7 @@
 # RGGS Comparative Genomics 2 — Computational Methods
 Materials for the American Museum of Natural History-Richard Gilder Graduate School course: Comparative Genomics 2 — Computational Methods.
 
-This course is conducted by Rob Desalle, Jose Barba, Jessica Goodhart, and Dean Bobo. (Update instructors list. 
+This course is conducted by Rob Desalle, Jose Barba, Jessica Goodhart, and Dean Bobo. (Update instructors list). 
 
 The course takes place on Thursdays from 2:00 to 4:00 PM in the ICG conference room, from September 5 to December 12, 2024.
 
@@ -16,4 +16,4 @@ personal data should select an appropriate dataset to work with. Evaluation will
 participation, performance on quizzes and homework assignments, in-class presentations, and a final project.
 Students will receive individual guidance on applying methods relevant to their research and data. This support
 will include using their own datasets for tutorials and homework assignments, as well as consultations with
-instructors to discuss their data and appropriate bioinformatic methods. For more details, refer to the course syllabus. (Update link to syllabus).
+instructors to discuss their data and appropriate bioinformatic methods. For more details, refer to the course syllabus. https://github.com/josebarbamontoya/rggs_comparative_genomics_2/blob/main/CG2_Syllabus_Fall_2024_20240905.pdf
