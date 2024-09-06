@@ -10,7 +10,7 @@
 
 * ## Basic navigation in the terminal
 
-## Instructions to download the basix unix navigation tutorial
+## Instructions to download the basic unix navigation tutorial
 1.- Open the termial
 
 2.- Type `cd ~`
