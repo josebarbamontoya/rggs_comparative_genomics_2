@@ -29,8 +29,9 @@ touch f03.txt
 ls
 ls -la
 
-# 8. get help on the 'ls' command
+# 8. get help on the 'ls' command and quit
 man ls
+q
 
 # 9. copy file 'f01.txt'
 cp f01.txt f01_copy.txt
