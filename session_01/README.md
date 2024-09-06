@@ -15,4 +15,4 @@
   
 2.- Type `cd ~`
   
-3.- type `wget https://github.com/josebarbamontoya/rggs_comparative_genomics_2/blob/main/session_01/basic_unix_navigation_tutorial.sh`
+3.- Type `wget https://github.com/josebarbamontoya/rggs_comparative_genomics_2/blob/main/session_01/basic_unix_navigation_tutorial.sh`
