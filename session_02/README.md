@@ -8,6 +8,6 @@
   
 2.- Type `cd ~`
   
-3.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/cmmand_line_computing_basics_tutorial.sh...` (update link)
+3.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/command_line_computing_basics_tutorial.sh...` (update link)
 
 
