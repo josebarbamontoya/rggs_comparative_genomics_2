@@ -76,5 +76,5 @@ cat /home/jbarba/test_directory/README.txt
 # logout the server
 exit
 
-#2) transport huxley to my laptop (logged in my laptop):
+#2) transport directory from huxley to my laptop (logged in my laptop):
 scp -r jbarba@huxley-master.pcc.amnh.org:/home/jbarba/test_directory /Users/barba/Desktop/
