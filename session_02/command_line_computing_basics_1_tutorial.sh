@@ -20,7 +20,7 @@ unzip fasta_alignments.zip
 # or uncompress `fasta_alignments.zip` using `tar`
 tar -xf fasta_alignments.zip
 
-# 3. change to `fasta_alignments` directory
+# change to `fasta_alignments` directory
 cd fasta_alignments
 
 # count the number of sequences in each alignment
