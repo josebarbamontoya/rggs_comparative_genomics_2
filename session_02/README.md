@@ -10,4 +10,4 @@
   
 3.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/command_line_computing_basics_1_tutorial.sh`
 
-4.- Type`https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/ssh_and_scp_tutorial.sh`
+4.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/ssh_and_scp_tutorial.sh`
