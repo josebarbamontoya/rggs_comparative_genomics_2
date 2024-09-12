@@ -20,7 +20,7 @@ unzip fasta_alignments.zip
 # or uncompress `fasta_alignments.zip` using `tar`
 tar -xf fasta_alignments.zip
 
-# 3. change to `alns` directory
+# 3. change to `fasta_alignments` directory
 cd fasta_alignments
 
 # count the number of sequences in each alignment
@@ -50,7 +50,7 @@ sed -i ".bak" 's/ |uce-3715//g' uce-3715.fasta
 # display the top line in 'uce-203.fasta' 
 head -n1 uce-203.fasta
 
-# edit sequence names part 02
+# edit sequence names part 03
 sed -i ".bak" 's/_R_//g' *.fasta
 
 # display the content of 'uce-203.fasta' 
