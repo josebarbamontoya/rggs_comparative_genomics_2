@@ -15,4 +15,4 @@
   
 2.- Type `cd ~`
   
-3.- Enter the following command: `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_01/basic_unix_navigation_tutorial.sh`. If `wget` is not available, use `curl -O` instead.
+3.- Enter the following command: `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_01/basic_unix_navigation_tutorial.sh`, if `wget` is not available, use `curl -0` instead.
