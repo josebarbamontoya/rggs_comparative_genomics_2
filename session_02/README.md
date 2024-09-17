@@ -8,6 +8,7 @@
     
   2.- Type `cd ~`
     
-  3.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/command_line_computing_basics_1_tutorial.sh`
+  3.- Enter the following command: `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/command_line_computing_basics_1_tutorial.sh`. If wget is not available, use curl -O instead.
   
-  4.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/ssh_and_scp_tutorial.sh`
+  4.- Enter the following command: `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_02/ssh_and_scp_tutorial.sh`. If wget is not available, use curl -O instead.
+  
