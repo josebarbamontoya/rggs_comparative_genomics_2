@@ -8,5 +8,4 @@
     
   2.- Type `cd ~`
     
-  3.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_03/command_line_computing_basics_2_tutorial.sh`
-  or `curl -0 https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_03/command_line_computing_basics_2_tutorial.sh`
+  3.- Type `wget https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_03/command_line_computing_basics_2_tutorial.sh`. if `wget` does not work use insted `curl -0`.
