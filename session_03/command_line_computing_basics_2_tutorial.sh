@@ -180,15 +180,15 @@ do
         if [[ -n $sequence ]]; then
             length=${#sequence}
             echo "Total sequence length: $length" >> output.txt
-            sequence=""  # Reset sequence for the next one
+            sequence=""  # reset sequence for the next one
         fi
-        echo "$line" >> output.txt  # Print the header to output.txt
+        echo "$line" >> output.txt  # print the header to output.txt
     else
-        sequence+="$line"  # Concatenate sequence lines
+        sequence+="$line"  # concatenate sequence lines
     fi
 done < m2778_subsampled_gb.fas
 
-# Process the last sequence in the file
+# process the last sequence in the file
 if [[ -n $sequence ]]; then
     length=${#sequence}
     echo "Total sequence length: $length" >> output.txt
@@ -216,7 +216,7 @@ do
             total_count=${#sequence}  # get total number of bases
             gc_percentage=$(echo "scale=2; ($gc_count/$total_count)*100" | bc)
             echo "GC Content: $gc_percentage%" >> gc_output.txt
-            sequence=""  # Reset sequence for the next one
+            sequence=""  # reset sequence for the next one
         fi
         echo "$line" >> gc_output.txt  # Print the header to output.txt
     else
