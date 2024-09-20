@@ -179,7 +179,7 @@ do
     if [[ $line == ">"* ]]; then
         if [[ -n $sequence ]]; then
             length=${#sequence}
-            echo "Total sequence length: $length" >> output.txt
+            echo "total sequence length: $length" >> output.txt
             sequence=""  # reset sequence for the next one
         fi
         echo "$line" >> output.txt  # print the header to output.txt
@@ -191,7 +191,7 @@ done < m2778_subsampled_gb.fas
 # process the last sequence in the file
 if [[ -n $sequence ]]; then
     length=${#sequence}
-    echo "Total sequence length: $length" >> output.txt
+    echo "total sequence length: $length" >> output.txt
 fi
 
 ##### part 03 #####
