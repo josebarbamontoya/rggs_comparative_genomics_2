@@ -123,13 +123,11 @@ done
 cd mammal_data_analysis_gtr
 # extract likelihood from iqtree info files
 grep "BEST SCORE FOUND :" *.log > iqtree_tree_likelihoods_gtr.txt
-# display the content of 'iqtree_tree_likelihoods_gtr.txt' 
 cd ..
 
 cd mammal_data_analysis_hky
 # extract likelihood from iqtree info files
 grep "BEST SCORE FOUND :" *.log > iqtree_tree_likelihoods_hky.txt
-# display the content of 'iqtree_tree_likelihoods_hky.txt' 
 cd ..
 
 # compare tree likelihoods from diffrent models
