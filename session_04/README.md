@@ -3,7 +3,7 @@
 * ## Working on remote servers: HPC architecture, using a scheduler, submitting jobs
 * ## Scripting
 * ## Version control with GitHub
-* 
+
 ## Instructions to download the the GitHub control version tutorial to the home directory:
 1.- Open the termial
   
