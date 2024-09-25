@@ -10,7 +10,7 @@
 
 * ## Basic navigation in the terminal
 
-## Instructions to download the "Basic Unix navigation" tutorial to the home directory:
+## Instructions to download the "Basic Unix Navigation" tutorial to the home directory:
 1.- Open the termial
   
 2.- Type `cd ~`
