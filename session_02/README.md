@@ -3,7 +3,7 @@
 * ## Command line computing basics 1
 * ## Connecting to remote servers using the terminal and a package manager
 
-## Instructions to download the "Command line computing basics 1" and "Connecting to remote servers" tutorials to the home directory:
+## Instructions to download the "Command Line Computing Basics 1" and "Connecting to Remote Servers" tutorials to the home directory:
 
   1.- Open the termial
   
