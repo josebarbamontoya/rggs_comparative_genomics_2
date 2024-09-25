@@ -3,7 +3,7 @@
 * ## Command line computing basics 2
 * ## Introduction to GitHub
 
-## Instructions to download the "Command line computing basics 2" tutorial:
+## Instructions to download the "Command Line Computing Basics 2" tutorial:
   1.- Open the termial
 
   2.- Type `cd ~`
