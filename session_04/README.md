@@ -4,7 +4,7 @@
 * ## Scripting
 * ## Version control with GitHub
 
-## Instructions to download the HPC and scripting, and GitHub control version tutoriala to the home directory:
+## Instructions to download the HPC and scripting, and GitHub control version tutorials to the home directory:
 1.- Open the termial
   
 2.- Type `cd ~`
