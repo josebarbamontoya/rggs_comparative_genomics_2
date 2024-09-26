@@ -200,7 +200,7 @@ nano my_script.sh
 
 # within nano, type in on the first line
 #!/bin/bash
-# to write out file, press ^O
+# to write out the file, press ^O, then press return
 # to exit nano, press ^X
 
 #run `my_script.sh`
