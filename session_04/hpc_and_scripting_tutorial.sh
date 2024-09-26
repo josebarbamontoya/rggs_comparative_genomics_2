@@ -27,6 +27,10 @@ chmod 777 loop_script.sh
 ##### part 02 #####
 ##### set up the hpc tutorial directory #####
 
+# login to huxley server
+### NOTE: substitute the amnh_username with your own
+ssh amnh_username@huxley-master.pcc.amnh.org
+
 # copy the hpc_tutorial directory to your nas4 directory
 ### NOTE: substitute the amnh_username with your own
 cp -r /home/jbarba/nas4/cg2_course/hpc_tutorial /home/amnh_username/nas4/
@@ -114,13 +118,14 @@ makeblastdb -in GRCh38_latest_genomic.fna -parse_seqids -dbtype nucl
 #PBS -V
 #PBS -q batch
 #PBS -S /bin/bash
-#PBS -N serial-blast
+#PBS -N array-blast
 #PBS -l ncpus=1
 #PBS -l walltime=00:10:00
+#PBS -J 1-3
 cd $PBS_O_WORKDIR
 module load ncbi-blast-2.6.0+
 date
-blastn -query /home/jbarba/nas4/cg2_course/hpc_tutorial/blast_search/dicty_rna.fa -db /home/jbarba/nas4/cg2_course/hpc_tutorial/blast_search/GRCh38_latest_genomic.fna -out /home/jbarba/nas4/cg2_course/hpc_tutorial/blast_search/serial.blastout
+blastn -query /home/jbarba/nas4/cg2_course/hpc_tutorial/blast_search/dicty_rna.fa.$PBS_ARRAY_INDEX -db /home/jbarba/nas4/cg2_course/hpc_tutorial/blast_search/GRCh38_latest_genomic.fna -out /home/jbarba/nas4/cg2_course/hpc_tutorial/blast_search/serial.blastout.$PBS_ARRAY_INDEX
 date
 
 ##### script ends here #####
@@ -248,7 +253,7 @@ parallel -j3 'blastn -query ../blast_search/dicty_rna.fa.{} -db ../blast_search/
 ##### script ends here #####
 
 # 3. execute the shell script
-./pbs_blast_array.sh
+./gnu_parallel_blast.sh
 
 # 4 kill a job
 kill <job_id>
