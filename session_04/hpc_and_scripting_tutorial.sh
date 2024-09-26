@@ -168,7 +168,7 @@ date
 ##### script ends here #####
 
 # 3. submit job
-qsub pbs_blast_array.sh
+qsub pbs_raxml_threads.sh
 
 # 4 check jobs status
 qstat
@@ -205,7 +205,7 @@ date
 ##### script ends here #####
 
 # 3. submit job
-qsub pbs_blast_array.sh
+qsub pbs_abyss_mpi.sh
 
 # 4 check jobs status
 qstat
