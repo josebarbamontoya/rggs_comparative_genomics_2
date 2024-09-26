@@ -6,8 +6,8 @@
 #PBS -S /bin/bash
 #PBS -m abe
 #PBS -M jbarba@amnh.org
-#PBS -e /home/jbarba/HPL_RUNS/error_file_name.txt
-#PBS -o /home/jbarba/HPL_RUNS/output_file_name.txt
+#PBS -e /home/jbarba/HPL_RUNS/error_file.txt
+#PBS -o /home/jbarba/HPL_RUNS/output_file.txt
 #PBS -l ncpus=5
 #PBS -l mem=10G
 #PBS -l walltime=48:00:00
