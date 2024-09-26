@@ -57,7 +57,7 @@ kangaroo raven
 lion sparrow
 tiger swallow
 whale woodpecker
-# to write out file, press ^O
+# to write out the file, press ^O, then press enter
 # to exit nano, press ^X
 
 # 14. display the content of 'f01.txt'
