@@ -35,31 +35,33 @@ os.getcwd()
 with open("assembly_summary_refseq.txt", "r") as file:
     g_data = file.read()
 
-# see table content
-#g_data 
-
 # remove the '#' symbol from each line
 cleaned_lines = [line.replace("#", "") for line in g_data]
 
-# convert cleaned lines to a DataFrame, skipping the first line
+# convert cleaned lines to a dataframe, skipping the first line
 # use stringio to read the cleaned lines as a cvs-like structure
 data_string = "".join(cleaned_lines)
 g_data = pd.read_csv(StringIO(data_string), sep="\t", skiprows=1, quoting=3, engine='python')
 
-# export the edited DataFrame to a new file
+# export the edited dataframed to a new file
 g_data.to_csv("assembly_summary_refseq_cleaned.txt", sep="\t", index=False, quoting=3)
 
 # read the cleaned dataframe with low_memory set to false
 g_data = pd.read_csv("assembly_summary_refseq_cleaned.txt", sep="\t", low_memory=False)
 
-# count number of rows and columns
+#############################################################
+#############################################################
+#############################################################
+#############################################################
+
+# count number of rows (genomes) and columns (variables) 
 # number of rows
 num_rows = g_data.shape[0]
 # number of columns
 num_cols = g_data.shape[1]
 # print numbers
-print(f"Number of rows: {num_rows}")
-print(f"Number of columns: {num_cols}")
+print(f"Number of genomes: {num_rows}")
+print(f"Number of variables: {num_cols}")
 
 # count number of genomes for each major lineage
 genome_counts = g_data['group'].value_counts()
@@ -68,7 +70,7 @@ print(genome_counts)
 
 ##### summary statistics of gc percent #####
 print("\nSummary statistics for GC percent:")
-gc_percent_summary = g_data['gc_percent'].describe()  # Summary statistics
+gc_percent_summary = g_data['gc_percent'].describe() 
 print(gc_percent_summary)
 
 # statistical measures of gc percent
@@ -92,71 +94,33 @@ plt.ylabel('Frequency')
 plt.grid(axis='y', alpha=0.75)
 plt.show()
 
-# compute maximum nuber of base pairs
+# compute maximum number of base pairs
 g_data['genome_size'].max()
 
 # compute average number of base pairs
 g_data['genome_size'].mean()
 
-##### create a bar plot of genome size #####
-#plt.figure(figsize=(25, 15))
-#plt.bar(g_data['organism_name'], g_data['genome_size'], color='green')
-#plt.title('Genome Size Barplot')
-#plt.xlabel('Organism')
-#plt.ylabel('Base Pairs')
-#plt.ylim(0, 100000000)  # Set y-axis limits from 0 to 1 billion (adjust as necessary)
-#plt.xticks(rotation=45)
-#plt.grid(axis='y', alpha=0.75)
-#plt.tight_layout()
-#plt.show()
-
-# create a bar plot of genome size
-plt.figure(figsize=(25, 15))
-plt.bar(range(len(g_data)), g_data['genome_size'], color='green')  # Use indices for the x-axis
+##### create a barplot of genome size #####
+g_data_sorted = g_data.sort_values(by='genome_size', ascending=False)
+plt.figure(figsize=(20, 6))
+plt.bar(g_data_sorted['organism_name'], g_data_sorted['genome_size'], color='green')
 plt.title('Genome Size Barplot')
+plt.xlabel('Organism')
 plt.ylabel('Base Pairs')
-plt.ylim(0, 100000000)
-plt.box(on=None)
-plt.xticks([])
+plt.ylim(0, 100000000) # NOTE: the maximum number of base pairs is 40054324612 (adjust y-axis as necessary) 
+plt.xticks([], rotation=45) # hide x axis labels
 plt.grid(axis='y', alpha=0.75)
 plt.tight_layout()
 plt.show()
 
 ##### create a stacked barplot of coding and noncoding genes #####
+##### create the stacked barplot for a subset #####
 # ensure the columns are numeric, replacing non-numeric entries with NaN and dropping rows with missing data
 g_data_clean = g_data[['protein_coding_gene_count', 'non_coding_gene_count']].apply(pd.to_numeric, errors='coerce').dropna()
-
-# create the data matrix (stacked values for each organism)
-data_matrix = np.array([g_data_clean['protein_coding_gene_count'], g_data_clean['non_coding_gene_count']])
-
-# create the stacked bar plot
-# define the figure size and the positions of the bars
-fig, ax = plt.subplots(figsize=(10, 6))
-organisms = np.arange(g_data_clean.shape[0])
-
-# plot the stacked bars (first the non-coding genes, then add protein-coding genes on top)
-bar1 = ax.bar(organisms, data_matrix[1], color='red', label='Non-coding genes')  # Non-coding genes
-bar2 = ax.bar(organisms, data_matrix[0], bottom=data_matrix[1], color='blue', label='Protein-coding genes')
-# add titles and labels
-ax.set_title("Number of Protein-coding and Non-coding Genes per Organism")
-#ax.set_xlabel("Organism")
-ax.set_ylabel("Gene Count")
-plt.ylim(0, 132906)
-# add legend
-ax.legend()
-# edit the x-axis to show the organism labels if available (or else show indices)
-#ax.set_xticks(organisms)
-#ax.set_xticklabels(g_data_clean.index, rotation=90)
-# Show the plot
-plt.tight_layout()
-plt.show()
-
-##### create the stacked barplot for the subset #####
-# ensure the columns are numeric, replacing non-numeric entries with NaN and dropping rows with missing data
-g_data_clean = g_data[['protein_coding_gene_count', 'non_coding_gene_count']].apply(pd.to_numeric, errors='coerce').dropna()
-
-# select rows 10 to 100 (python uses zero-based indexing, so this is equivalent to rows 11 to 100 in r)
-subset = g_data_clean.iloc[10:100]
+# compute maximum number protein coding genes 
+g_data_clean['protein_coding_gene_count'].max()
+# select rows 10 to 1000 (python uses zero-based indexing, so this is equivalent to rows 1 to 1000 in r)
+subset = g_data_clean.iloc[10:1000] # NOTE: the total number of refseq genomes is 397713 (adjust set as necessary) 
 # create the data matrix (stacked values for each organism in the subset)
 data_matrix = np.array([subset['protein_coding_gene_count'], subset['non_coding_gene_count']])
 # create the stacked bar plot
@@ -165,19 +129,15 @@ organisms = np.arange(subset.shape[0])
 # plot the stacked bars (non-coding genes first, then protein-coding genes stacked on top)
 bar1 = ax.bar(organisms, data_matrix[1], color='red', label='Non-coding genes')
 bar2 = ax.bar(organisms, data_matrix[0], bottom=data_matrix[1], color='blue', label='Protein-coding genes')
-# add titles and labels
-ax.set_title("Number of Protein-coding and Non-coding Genes (Rows 10 to 100)")
+ax.set_title("Number of Protein-coding and Non-coding Genes (geneomes 1 to 1000)")
 ax.set_ylabel("Gene Count")
-# set dynamic y-limit based on data
+### set dynamic y-limit based on data
 #ax.set_ylim(0, data_matrix.sum(axis=0).max() * 1.1)
-# set hard y-limit
-plt.ylim(0, 132906)
-# add legend
+#### set hard y-limit
+plt.ylim(0, 45000) # NOTE: the total number of protein_coding_gene_count 103787 (adjust set as necessary)
+plt.xlabel('Organism')
 ax.legend()
-# uncomment the following to add organism labels if necessary (index can be used here)
-# ax.set_xticks(organisms)
-# ax.set_xticklabels(subset.index, rotation=90)
-# Sshow the plot
+plt.xticks([], rotation=45) # hide x axis labels
 plt.tight_layout()
 plt.show()
 
@@ -204,37 +164,29 @@ results = model.fit()
 plt.plot(g_data_clean['genome_size'], results.predict(), color='red', linewidth=2)
 plt.show()
 
-# compute the correlation (Pearson correlation coefficient)
+# compute the correlation (pearson correlation coefficient)
 correlation, p_value = pearsonr(g_data_clean['genome_size'], g_data_clean['total_gene_count'])
 print(f"Pearson Correlation: {correlation:.3f}, p-value: {p_value:.3e}")
 
 # display the linear regression summary
 print(results.summary())
 
-##### create a boxplot or a vioplot of genome size for plant and fungi #####
+##### create a boxplot of genome size for plant and fungi #####
 # sort table by group
 sorted_table = g_data.sort_values(by='group')
 
 # collect plant genome size (rows 381746 to 381931 in the sorted table)
-plant_genome_size = sorted_table.iloc[381746:381931]['genome_size']
+plant_genome_size = sorted_table.iloc[381748:381934]['genome_size']
 
 # collect fungi genome size (rows 380685 to 381316 in the sorted table)
-fungi_genome_size = sorted_table.iloc[380685:381316]['genome_size']
+fungi_genome_size = sorted_table.iloc[380685:381317]['genome_size']
 
 # create a boxplot
 plt.figure(figsize=(10, 6))
 plt.boxplot([plant_genome_size, fungi_genome_size], labels=['Plant', 'Fungi'])
-plt.ylabel("Genome Size (bp)")
-plt.title("Plant and Fungi Genome Size - Boxplot")
+plt.ylabel("Genome size (bp)")
+plt.title("Plant and fungi genome size")
 plt.show()
-
-# alternatively, create a violin plot
-#plt.figure(figsize=(10, 6))
-#sns.violinplot(data=[plant_genome_size, fungi_genome_size])
-#plt.xticks([0, 1], ['Plant', 'Fungi'])
-#plt.ylabel("Genome Size (bp)")
-#plt.title("Plant and Fungi Genome Size - Violin Plot")
-#plt.show()
 
 ##### create a density plot of percentage difference between non-coding and protein-coding gene counts #####
 # remove rows with missing values in protein_coding_gene_count and non_coding_gene_count columns
@@ -295,38 +247,40 @@ else:
 
 import os
 import requests
-from Bio import AlignIO
-from Bio import Phylo
+from Bio import AlignIO, Phylo
 from Bio.Phylo.TreeConstruction import DistanceCalculator, DistanceTreeConstructor
 import rpy2.robjects as robjects
 from rpy2.robjects.packages import importr
-import rpy2.robjects as ro
-from rpy2.robjects import pandas2ri
-from rpy2.robjects import numpy2ri
-import rpy2.robjects as robjects
 import numpy as np
+from rpy2 import robjects
+from rpy2.robjects import pandas2ri, r
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-from scipy import stats
 from Bio import Phylo
+from scipy import stats
 
 # set working directory
 # NOTE: substitute path with your own
-working_directory = "/Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_05"
+working_directory = "/Users/barba/Desktop/rggs-comparative_genomics_2_course/session_05"
+
+# create the directory if it does not exist
+os.makedirs(working_directory, exist_ok=True)
+
+# change to the working directory
 os.chdir(working_directory)
 
-# download a fasta msa of 44 canid mt genomes
+# download a FASTA MSA of 44 canid mt genomes
 url = "https://raw.githubusercontent.com/josebarbamontoya/rggs_comparative_genomics_2/main/session_05/44canid_mt_genomes.fas"
 response = requests.get(url)
+response.raise_for_status()  # Raise an error for bad responses
 with open("44canid_mt_genomes.fas", "wb") as file:
     file.write(response.content)
 
-# read FASTA MSA
+# tead FASTA MSA
 alignment = AlignIO.read("44canid_mt_genomes.fas", "fasta")
 
-# calculate distance matrix using the JC69 model
-calculator = DistanceCalculator('identity')  # 'identity' corresponds to JC69 for DNA sequences
+# calculate distance matrix using the identity model (equivalent to JC69 for DNA)
+calculator = DistanceCalculator('identity')
 dist_matrix = calculator.get_distance(alignment)
 
 # construct a tree using the neighbor-joining method
@@ -336,7 +290,7 @@ nj_tree = constructor.nj(dist_matrix)
 # plot the tree
 Phylo.draw(nj_tree, do_show=True)
 
-# save the Newick tree
+# dave the Newick tree
 Phylo.write(nj_tree, "nj_tree.nwk", "newick")
 
 ##### construct a maximum likelihood tree #####
@@ -345,16 +299,16 @@ ape = importr('ape')
 phangorn = importr('phangorn')
 
 # set the path to the fasta file
-fasta_file_path = "/Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_05/44canid_mt_genomes.fas"
+fasta_file_path = os.path.join(working_directory, "44canid_mt_genomes.fas")
 
 # read the fasta multiple sequence alignment
 aln = robjects.r['read.FASTA'](fasta_file_path, type="DNA")
 
-# create a phydat object
+# create a phyDat object
 phy_data = robjects.r['phyDat'](aln, type="DNA")
 
-# create a neighbor-joining tree (replace 'nj_tree' with your actual tree if needed)
-nj_tree = robjects.r['nj'](robjects.r['dist.dna'](aln, model="raw"))  # Assuming nj_tree needs to be created from the alignment
+# read the neighbor-joining tree from a Newick file
+nj_tree = robjects.r['read.tree']("nj_tree.nwk")
 
 # fit the maximum likelihood model
 fit = robjects.r['pml'](nj_tree, data=phy_data)
@@ -362,19 +316,22 @@ fit = robjects.r['pml'](nj_tree, data=phy_data)
 # optimize the tree
 fit = robjects.r['optim.pml'](fit, model="GTR", optGamma=True)
 
-# plot the ml tree
-ml_tree = fit.rx2('tree')
-robjects.r['plot'](ml_tree, main="Maximum Likelihood Tree")
-robjects.r['nodelabels']()
-robjects.r['edgelabels']()
+# extract the optimized tree
+ml_tree_r = fit.rx2('tree')
 
-# save the newick tree
-robjects.r['write.tree'](ml_tree, file="ml_tree.nwk")
+# save the maximum likelihood tree as a Newick file
+robjects.r['write.tree'](ml_tree_r, file="ml_tree.nwk")
+
+# read the Newick tree back into Biopython
+ml_tree = Phylo.read("ml_tree.nwk", "newick")
+
+# plot the maximum likelihood tree
+Phylo.draw(ml_tree, do_show=True)
 
 ##### sort and compare trees #####
 ##### comparephylo and robinson-foulds distance #####
 
-# activate automatic conversion of pandas and numpy objects to r objects
+# activate automatic conversion of pandas and numpy objects to R objects
 pandas2ri.activate()
 
 # import necessary R packages
@@ -384,8 +341,8 @@ ape = importr('ape')
 a = ape.read_tree("nj_tree.nwk")
 b = ape.read_tree("ml_tree.nwk")
 
-# convert outgroup list to r character vector
-outgroup = robjects.StrVector(['GF_GrayFox_Vermont'])
+# convert outgroup list to R character vector
+outgroup = r['c']('GF_GrayFox_Vermont')
 
 # root trees with the specified outgroup
 a = ape.root(a, outgroup=outgroup, resolve_root=True)
@@ -395,28 +352,40 @@ b = ape.root(b, outgroup=outgroup, resolve_root=True)
 a = ape.ladderize(a, right=False)
 b = ape.ladderize(b, right=False)
 
+# print summaries of the trees to inspect their structures using R's summary function
+print("NJ tree summary:")
+r['print'](r['summary'](a))
+
+print("ML tre summary:")
+r['print'](r['summary'](b))
+
+# import necessary r packages
+ape = importr('ape')
+phangorn = importr('phangorn')
+phytools = importr('phytools') 
+
 # compare trees and plot
-compare_results = ape.comparePhylo(a, b, plot=True, force_rooted=True, use_edge_length=True)
+compare_results = ape.comparePhylo(a, b, plot=True, force_rooted=False, use_edge_length=True)
 
 # print the entire comparison results to understand its structure
 print(compare_results)
 
 # combine the trees for distance calculation
-trees = robjects.r('c(a, b)')
+trees = robjects.r['c'](a, b)
 
 # calculate the multiRobinsonFoulds distance
-rf_results = robjects.r('multiRF(trees)')
+rf_results = phytools.multiRF(trees)
 
-# norm RF distance calculation
-n = 44  # Number of taxa
+# normalized rf distance calculation
+n = 44 
 plain_rf = rf_results[0]  # Get the plain RF distance
 nrf = plain_rf / (2 * (n - 3))
 
-# print the normalized RF distance
+# print the normalized rf distance
 print(f"Normalized RF distance: {nrf[0]}")
 
-##### scatterplot of nj and ml branch lengths #####
-# load trees (replace with actual paths)
+##### Scatterplot of NJ and ML branch lengths #####
+# Load trees (replace with actual paths)
 try:
     nj_tree = Phylo.read("nj_tree.nwk", "newick")
     ml_tree = Phylo.read("ml_tree.nwk", "newick")
@@ -424,12 +393,12 @@ except Exception as e:
     print(f"Error loading trees: {e}")
     exit(1)
 
-# manually root trees with the specified outgroup
+# Manually root trees with the specified outgroup
 outgroup = "GF_GrayFox_Vermont"
 nj_tree.root_with_outgroup(outgroup)
 ml_tree.root_with_outgroup(outgroup)
 
-# manually ladderize the trees
+# Manually ladderize the trees
 def ladderize(tree):
     terminal_nodes = [clade for clade in tree.get_terminals()]
     terminal_nodes.sort(key=lambda x: x.name)
@@ -440,8 +409,7 @@ def ladderize(tree):
 nj_tree = ladderize(nj_tree)
 ml_tree = ladderize(ml_tree)
 
-
-# extract branch lengths
+# Extract branch lengths
 def extract_branch_lengths(tree):
     lengths = []
     for clade in tree.get_nonterminals() + tree.get_terminals():
@@ -452,7 +420,18 @@ def extract_branch_lengths(tree):
 nj_bl = extract_branch_lengths(nj_tree)
 ml_bl = extract_branch_lengths(ml_tree)
 
-# create a dataframe for easy plotting
+# Check lengths of branch length arrays
+print(f"NJ branch lengths count: {len(nj_bl)}")
+print(f"ML branch lengths count: {len(ml_bl)}")
+
+# if lengths are not equal, find the minimum length and truncate the longer one
+if len(nj_bl) != len(ml_bl):
+    min_length = min(len(nj_bl), len(ml_bl))
+    nj_bl = nj_bl[:min_length]
+    ml_bl = ml_bl[:min_length]
+    print(f"Truncated lengths to: {min_length}")
+
+# create a DataFrame for easy plotting
 branch_lengths_df = pd.DataFrame({
     'NJ': nj_bl,
     'ML': ml_bl
@@ -461,24 +440,18 @@ branch_lengths_df = pd.DataFrame({
 # make scatterplot
 plt.figure(figsize=(8, 8))
 plt.scatter(branch_lengths_df['NJ'], branch_lengths_df['ML'], alpha=0.7)
-plt.title("NJ and ML tree branch length comparison")
+plt.title("NJ and ML Tree Branch Length Comparison")
 plt.xlabel("NJ Branch Length")
 plt.ylabel("ML Branch Length")
 
-# fit linear regression through the origin
-slope, intercept, r_value, p_value, std_err = stats.linregress(branch_lengths_df['NJ'], branch_lengths_df['ML'])
-plt.plot(branch_lengths_df['NJ'], slope * branch_lengths_df['NJ'], color='red', label='Fit: y = {:.2f}x'.format(slope))
-plt.legend()
+# add diagonal line for reference
+max_length = max(branch_lengths_df['NJ'].max(), branch_lengths_df['ML'].max())
+plt.plot([0, max_length], [0, max_length], color='red', linestyle='--')  # y=x line
 
-# show plot
-plt.grid()
+# add grid and show the plot
+plt.grid(True)
+plt.axis('equal')  # Equal aspect ratio for better comparison
+plt.xlim(0, max_length)
+plt.ylim(0, max_length)
 plt.show()
-
-# compute correlation
-correlation = branch_lengths_df.corr(method='pearson').iloc[0, 1]
-print(f"Pearson correlation coefficient: {correlation:.4f}")
-
-# linear regression summary
-print(f"Linear regression through the origin: y = {slope:.4f}x")
-print(f"R-squared: {r_value**2:.4f}, p-value: {p_value:.4f}, standard error: {std_err:.4f}")
 
