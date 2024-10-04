@@ -103,7 +103,7 @@ plt.title('Genome Size Barplot')
 plt.xlabel('Organism')
 plt.ylabel('Base Pairs')
 plt.ylim(0, 100000000) # NOTE: the maximum number of base pairs is 40054324612 (adjust y-axis as necessary) 
-plt.xticks([], rotation=45) # hide x axis labels
+plt.xticks([], rotation=45)
 plt.grid(axis='y', alpha=0.75)
 plt.tight_layout()
 plt.show()
@@ -271,10 +271,10 @@ response.raise_for_status()  # Raise an error for bad responses
 with open("44canid_mt_genomes.fas", "wb") as file:
     file.write(response.content)
 
-# tead FASTA MSA
+# read fasta MSA
 alignment = AlignIO.read("44canid_mt_genomes.fas", "fasta")
 
-# calculate distance matrix using the identity model (equivalent to JC69 for DNA)
+# calculate distance matrix using the identity model (equivalent to jc69 for dna)
 calculator = DistanceCalculator('identity')
 dist_matrix = calculator.get_distance(alignment)
 
@@ -285,7 +285,7 @@ nj_tree = constructor.nj(dist_matrix)
 # plot the tree
 Phylo.draw(nj_tree, do_show=True)
 
-# dave the Newick tree
+# dave the newick tree
 Phylo.write(nj_tree, "nj_tree.nwk", "newick")
 
 ##### construct a maximum likelihood tree #####
@@ -302,7 +302,7 @@ aln = robjects.r['read.FASTA'](fasta_file_path, type="DNA")
 # create a phyDat object
 phy_data = robjects.r['phyDat'](aln, type="DNA")
 
-# read the neighbor-joining tree from a Newick file
+# read the neighbor-joining tree from a newick file
 nj_tree = robjects.r['read.tree']("nj_tree.nwk")
 
 # fit the maximum likelihood model
@@ -314,10 +314,10 @@ fit = robjects.r['optim.pml'](fit, model="GTR", optGamma=True)
 # extract the optimized tree
 ml_tree_r = fit.rx2('tree')
 
-# save the maximum likelihood tree as a Newick file
+# save the maximum likelihood tree as a newick file
 robjects.r['write.tree'](ml_tree_r, file="ml_tree.nwk")
 
-# read the Newick tree back into Biopython
+# read the Newick tree back into biopython
 ml_tree = Phylo.read("ml_tree.nwk", "newick")
 
 # plot the maximum likelihood tree
@@ -325,18 +325,17 @@ Phylo.draw(ml_tree, do_show=True)
 
 ##### sort and compare trees #####
 ##### comparephylo and robinson-foulds distance #####
-
-# activate automatic conversion of pandas and numpy objects to R objects
+# activate automatic conversion of pandas and numpy objects to r objects
 pandas2ri.activate()
 
-# import necessary R packages
+# import necessary r packages
 ape = importr('ape')
 
 # read trees from Newick files
 a = ape.read_tree("nj_tree.nwk")
 b = ape.read_tree("ml_tree.nwk")
 
-# convert outgroup list to R character vector
+# convert outgroup list to r character vector
 outgroup = r['c']('GF_GrayFox_Vermont')
 
 # root trees with the specified outgroup
@@ -347,7 +346,7 @@ b = ape.root(b, outgroup=outgroup, resolve_root=True)
 a = ape.ladderize(a, right=False)
 b = ape.ladderize(b, right=False)
 
-# print summaries of the trees to inspect their structures using R's summary function
+# print summaries of the trees to inspect their structures using r's summary function
 print("NJ tree summary:")
 r['print'](r['summary'](a))
 
@@ -368,7 +367,7 @@ print(compare_results)
 # combine the trees for distance calculation
 trees = robjects.r['c'](a, b)
 
-# calculate the multiRobinsonFoulds distance
+# calculate the mmultirf distance
 rf_results = phytools.multiRF(trees)
 
 # normalized rf distance calculation
@@ -379,8 +378,8 @@ nrf = plain_rf / (2 * (n - 3))
 # print the normalized rf distance
 print(f"Normalized RF distance: {nrf[0]}")
 
-##### Scatterplot of NJ and ML branch lengths #####
-# Load trees (replace with actual paths)
+##### scatterplot of nj and ml branch lengths #####
+# load trees (replace with actual paths)
 try:
     nj_tree = Phylo.read("nj_tree.nwk", "newick")
     ml_tree = Phylo.read("ml_tree.nwk", "newick")
@@ -388,12 +387,12 @@ except Exception as e:
     print(f"Error loading trees: {e}")
     exit(1)
 
-# Manually root trees with the specified outgroup
+# manually root trees with the specified outgroup
 outgroup = "GF_GrayFox_Vermont"
 nj_tree.root_with_outgroup(outgroup)
 ml_tree.root_with_outgroup(outgroup)
 
-# Manually ladderize the trees
+# manually ladderize the trees
 def ladderize(tree):
     terminal_nodes = [clade for clade in tree.get_terminals()]
     terminal_nodes.sort(key=lambda x: x.name)
@@ -404,18 +403,18 @@ def ladderize(tree):
 nj_tree = ladderize(nj_tree)
 ml_tree = ladderize(ml_tree)
 
-# Extract branch lengths
+# extract branch lengths
 def extract_branch_lengths(tree):
     lengths = []
     for clade in tree.get_nonterminals() + tree.get_terminals():
-        if clade.branch_length is not None:  # Use branch_length instead of length
+        if clade.branch_length is not None:
             lengths.append(clade.branch_length)
     return np.array(lengths)
 
 nj_bl = extract_branch_lengths(nj_tree)
 ml_bl = extract_branch_lengths(ml_tree)
 
-# Check lengths of branch length arrays
+# check lengths of branch length arrays
 print(f"NJ branch lengths count: {len(nj_bl)}")
 print(f"ML branch lengths count: {len(ml_bl)}")
 
@@ -441,12 +440,11 @@ plt.ylabel("ML Branch Length")
 
 # add diagonal line for reference
 max_length = max(branch_lengths_df['NJ'].max(), branch_lengths_df['ML'].max())
-plt.plot([0, max_length], [0, max_length], color='red', linestyle='--')  # y=x line
+plt.plot([0, max_length], [0, max_length], color='red', linestyle='--')
 
 # add grid and show the plot
 plt.grid(True)
-plt.axis('equal')  # Equal aspect ratio for better comparison
+plt.axis('equal')
 plt.xlim(0, max_length)
 plt.ylim(0, max_length)
 plt.show()
-
