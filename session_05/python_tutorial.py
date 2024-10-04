@@ -49,11 +49,6 @@ g_data.to_csv("assembly_summary_refseq_cleaned.txt", sep="\t", index=False, quot
 # read the cleaned dataframe with low_memory set to false
 g_data = pd.read_csv("assembly_summary_refseq_cleaned.txt", sep="\t", low_memory=False)
 
-#############################################################
-#############################################################
-#############################################################
-#############################################################
-
 # count number of rows (genomes) and columns (variables) 
 # number of rows
 num_rows = g_data.shape[0]
