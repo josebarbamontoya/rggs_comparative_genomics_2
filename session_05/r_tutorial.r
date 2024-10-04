@@ -10,6 +10,7 @@
 
 # clear workspace
 rm(list=ls())
+library(ggplot2)
 
 # set working directory
 ### NOTE: substitute path with your own
@@ -33,7 +34,7 @@ g_data <- read.table(text = cleaned_lines, sep = "\t", skip = 1, header = TRUE, 
 # export the edited data frame to a new file
 write.table(g_data, "assembly_summary_refseq_cleaned.txt", sep = "\t", row.names = FALSE, quote = FALSE)
 
-# count number of columns and rows
+# count number of columns (variables and rows (geenomes)
 nrow(g_data)
 ncol(g_data)
 
@@ -55,8 +56,10 @@ max(g_data$gc_percent)
 hist(g_data$gc_percent, main="GC content", col="red3")
 
 ##### create a barplot of genome size #####
-barplot(g_data$genome_size, main="genome size", xlab="organism", ylab="base pairs")
-#box()
+# sort genome sizes in decreasing order and preserve the order of organisms
+g_data <- g_data[order(g_data$genome_size, decreasing = TRUE), ]
+# create the bar plot
+barplot(g_data$genome_size[100:37000], main="genome size", xlab="organism", ylab="base pairs")
 
 ##### create a stacked barplot of coding and noncoding genes #####
 # convert columns to numeric
@@ -66,26 +69,27 @@ g_data$non_coding_gene_count <- as.numeric(as.character(g_data$non_coding_gene_c
 # remove rows with na values
 g_data_clean <- na.omit(g_data)
 
-# create the data matrix
-data_matrix <- rbind(g_data_clean$protein_coding_gene_count, g_data_clean$non_coding_gene_count)
-
-# create the stacked barplot
-barplot(data_matrix, col=c("blue3", "red3"), beside=FALSE, legend.text=c("Protein-coding genes", "Non-coding genes"), main="Number protein-coding and mon-coding genes per organism", cex.axis=1, cex.names=1, xlab="organism", ylab="genes")
-
 # create a data matrix subset
-data_matrix <- rbind(g_data_clean$protein_coding_gene_count[10:100], g_data_clean$non_coding_gene_count[10:100])
+data_matrix <- rbind(g_data_clean$non_coding_gene_count[1:300], g_data_clean$protein_coding_gene_count[1:300]) # NOTE: the maximum number of base pairs is 40054324612 (adjust y-axis as necessary) 
 
 # create the stacked barplot for the subset
-barplot(data_matrix, col=c("blue3", "red3"), beside=FALSE, legend.text=c("Protein-coding genes", "Non-coding genes"), main="Number of protein-coding and mon-coding genes per organism", cex.axis=1, cex.names=1, xlab="organism", ylab="genes")
+barplot(data_matrix, col=c("red3", "blue3"), beside=FALSE, legend.text=c("Non-coding genes", "Protein-coding genes"), main="Number of protein-coding and mon-coding genes per organism", cex.axis=1, cex.names=1, xlab="organism", ylab="genes")
 
 ##### create a scatterplot of genome size and number of genes #####
-df1 <- na.omit(as.numeric(g_data$genome_size))
-df2 <- na.omit(as.numeric(g_data$total_gene_count))
-cleaned_df <- na.omit(data.frame(genome_size = g_data$genome_size, total_gene_count = g_data$total_gene_count))
+# ensure the necessary packages are loaded
+library(ggplot2)
 
-# make scatterplot
-plot(cleaned_df$genome_size, cleaned_df$total_gene_count, main = "Genome size vs number of genes")
-abline(lm(cleaned_df$total_gene_count ~ cleaned_df$genome_size + 0))
+# clean the data to remove NA values
+cleaned_df <- na.omit(data.frame(genome_size = as.numeric(g_data$genome_size), total_gene_count = as.numeric(g_data$total_gene_count)))
+
+# create the scatterplot using ggplot2 for better aesthetics
+ggplot(cleaned_df, aes(x = genome_size, y = total_gene_count)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(title = "Genome Size vs Number of Genes",
+       x = "Genome Size (base pairs)", 
+       y = "Total Gene Count") +
+  theme_minimal()
 
 # compute correlation
 cor(cleaned_df$total_gene_count, cleaned_df$genome_size, method = c("pearson"))
@@ -95,7 +99,7 @@ fit <- lm(cleaned_df$total_gene_count ~ cleaned_df$genome_size + 0)
 fit
 summary(fit)
 
-##### create a boxplot or a vioplot of genome size for plant and fungi #####
+##### create a boxplot of genome size for plant and fungi #####
 # sort table by group
 sorted_table <- g_data[order(g_data$group), ]
 
@@ -105,10 +109,9 @@ rf1 <- (genome_size=c(sorted_table$genome_size[381746:381931]))
 # collect fungi genemoe size
 rf2 <- (genome_size=c(sorted_table$genome_size[380685:381316]))
 
-# create a boxplot or a vioplot
+# create a boxplot
 require(vioplot)
 boxplot(rf1, rf2, names = c("plant", "fungi"), ylab = "genome size (bp)", main = "Plant and fungi genome size")
-#vioplot(rf1, rf2, names = c("plant", "fungi"), ylab = "genome size (bp)", main = "Plant and fungi genome size")
 
 ##### create a density plot of percentage difference between non-coding and protein-coding gene counts #####
 cleaned_df2 <- na.omit(data.frame(protein_coding_gene_count = g_data$protein_coding_gene_count, non_coding_gene_count = g_data$non_coding_gene_count))
@@ -137,7 +140,7 @@ cat("Number of NAs in delta_genes after cleaning:", sum(is.na(delta_genes)), "\n
 d1 <- density(delta_genes)
 
 # plot the density
-plot(d1, main = "Protein-coding and non-coding gene percent difference", xlab = "percent difference", ylab = "density", xlim=c(0, 100000), lwd=1)
+plot(d1, main = "Protein-coding and non-coding gene percent difference", xlab = "percent difference", ylab = "density", xlim=c(0, 100000), lwd=2 , col="red3")
 
 ######################################################################################
 ######################################################################################
@@ -231,8 +234,7 @@ b <- as.dendrogram(b)
 dend1 <- ladderize(a, right = FALSE)
 dend2 <- ladderize(b, right = FALSE)
 dl <- dendlist(dend1,dend2)
-dl %>% untangle %>% tanglegram(common_subtrees_color_lines=FALSE, lwd=1, highlight_distinct_edges=TRUE, highlight_branches_lwd=FALSE, margin_inner=0, axes=FALSE)
-#dl %>% untangle %>% tanglegram(common_subtrees_color_lines=FALSE, lwd=1, highlight_distinct_edges=TRUE, highlight_branches_lwd=FALSE, margin_inner=15, axes=FALSE, lab.cex=1)
+dl %>% untangle %>% tanglegram(common_subtrees_color_lines=FALSE, lwd=1, highlight_distinct_edges=TRUE, highlight_branches_lwd=FALSE, margin_inner=15, axes=FALSE, lab.cex=1)
 
 ##### scatterplot of nj and ml branch lengths #####
 # make branch length dataframes
@@ -244,7 +246,7 @@ ml_bl <- ml_tree$edge.length
 # make scatterplot
 par(mai=c(1,1,1,1))
 plot(nj_bl, ml_bl, main = "NJ and ML tree branch length comparison")
-abline(lm(ml_bl ~ nj_bl + 0))
+abline(lm(ml_bl ~ nj_bl + 0), col="blue3")
 
 # compute correlation
 cor(ml_bl, nj_bl, method = c("pearson"))
