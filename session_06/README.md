@@ -2,9 +2,9 @@
 
 * ## Quiz 1 (oral recapitulation of previous topics)
 * ## Paper presentations
-### Each student has chosen an -omics paper that they find innovative, exciting, relevant to their work, or particularly interesting. On October 10, 2024, they delivered a 10-minute presentation that provided a concise overview of the research question addressed and a thorough explanation of the computational methods employed.
+# Each student has chosen an -omics paper that they find innovative, exciting, relevant to their work, or particularly interesting. On October 10, 2024, they delivered a 10-minute presentation that provided a concise overview of the research question addressed and a thorough explanation of the computational methods employed.
 
-   **Amanda Markee** - Evolution of Opsin Genes in Caddisflies (Insecta: Trichoptera). Powell A et al. 2024. Genome Biology and Evolution, 16(9).
+   #**Amanda Markee** - Evolution of Opsin Genes in Caddisflies (Insecta: Trichoptera). Powell A et al. 2024. Genome Biology and Evolution, 16(9).
     
    **Daniela Garcia** - Phylogenomic Insights into Mouse Evolution Using a Pseudoreference Approach. Brice AJ et al. 2017. Genome Biology and Evolution, 9(3).
     
