@@ -12,6 +12,6 @@
     
    **Katherine Montana** - Evolutionary history and divergence times of Odonata (dragonflies and damselflies) revealed through transcriptomics. Kohli M et al. 2021. iScience, 24(11).
     
-   **Lina Raubold** - Mimicry and mitonuclear discordance in nudibranchs: New insights from exon capture phylogenomics. Layton K K S et al. 2020. Ecology and Evolution, 10(21).
+   **Lina Raubold** - Mimicry and mitonuclear discordance in nudibranchs: New insights from exon capture phylogenomics. Layton KKS et al. 2020. Ecology and Evolution, 10(21).
     
    **Violet Onsongo** - Assessment of targeted enrichment locus capture across time and museums using odonate specimens. Goodman A et al. 2023. Insect Systematics and Diversity, 7(3).
