@@ -2,4 +2,4 @@
 
 * ## Getting data from public repositories
 
-* ## Processing Illumina reads: QC, trimming, and filtering
+* ## Processing Illumina reads: quality control, trimming, and filtering
