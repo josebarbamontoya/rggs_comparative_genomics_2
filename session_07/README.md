@@ -1,4 +1,4 @@
-# Session 7 outline (Instructor: Dean Bobo)
+# Session 7 outline (by Dean Bobo)
 
 * ## Getting data from public repositories
 
