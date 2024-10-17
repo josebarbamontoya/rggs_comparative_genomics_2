@@ -6,4 +6,4 @@
 
 * ## Processing Illumina reads: quality control, trimming, and filtering
 
-## The material underlying this session is available at (add link)
+## The material underlying this session is available at: https://www.deanbobo.com
