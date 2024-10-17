@@ -1,7 +1,7 @@
 # AMNH-RGGS Comparative Genomics 2 — Computational Methods
 * ### Materials for the American Museum of Natural History-Richard Gilder Graduate School course: Comparative Genomics 2 — Computational Methods
 * ### Instructors: Robert DeSalle, Jose Barba, Jessica Goodhart, and Dean Bobo
-* ### Teaching Assistant: Meghan Forcellati
+* ### Teaching assistant: Meghan Forcellati
 * ### Sessions scheduled for Thursdays from 2:00 to 4:00 PM in the ICG conference room, from September 5 to December 12, 2024
 
 ## Course description
