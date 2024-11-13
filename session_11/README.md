@@ -15,4 +15,6 @@
     
        * **Lina Raubold** - Metagenomics.
     
+       * **Louis Gorgone** - Epigenomics.
+    
        * **Violet Onsongo** - Spatial transcriptomics. 
