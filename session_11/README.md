@@ -1,5 +1,6 @@
 # Session 11 outline
 
+* ## Final project description
 * ## Quiz 2 (oral recapitulation of previous topics)
 * ## Mid-term project presentations
 
