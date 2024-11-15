@@ -15,7 +15,5 @@
        * **Katherine Montana** - Gene/genome editing
     
        * **Lina Raubold** - Metagenomics.
-    
-       * **Louis Gorgone** - Epigenomics.
-    
+      
        * **Violet Onsongo** - Spatial transcriptomics. 
