@@ -8,7 +8,7 @@
 
        * **Amanda Markee** - Long read sequencing.
     
-       * **Daniela Garcia** - New -omics sequencing platforms.
+       * **Daniela Garcia** - NGS sequencing platforms.
 
        * **Joseph Won** - Direct sequencing of RNA.
     
