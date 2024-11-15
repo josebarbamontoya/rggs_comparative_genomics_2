@@ -12,7 +12,7 @@
 
        * **Joseph Won** - Direct sequencing of RNA.
     
-       * **Katherine Montana** - Gene/genome editing
+       * **Katherine Montana** - Gene/genome editing.
     
        * **Lina Raubold** - Metagenomics.
       
