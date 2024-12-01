@@ -1,3 +1,3 @@
 # Session 13 outline
 
-* ## Phylogenetic inference from NGS
+* ## Phylogenetic inference from NGS data
