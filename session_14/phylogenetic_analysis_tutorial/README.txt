@@ -1,5 +1,4 @@
 This directory contains materials for the phylogenetic analysis tutorial:
-
     * astral_species_tree
     * iqtree_concatenation_tree
     * iqtree_gene_trees
