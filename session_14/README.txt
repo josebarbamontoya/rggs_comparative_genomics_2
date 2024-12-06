@@ -1,6 +1,6 @@
-# Session 13 outline
+# Session 14 outline
 
-* ## Phylogenetic inference from NGS data
-(The materials for this lecture will be uploaded soon.)
+* ## Molecular clock dating for phylogenomic data
+ ### The materials for this lecture will be uploaded soon.
 
  
