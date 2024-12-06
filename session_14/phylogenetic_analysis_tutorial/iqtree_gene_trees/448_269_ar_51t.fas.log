@@ -1,0 +1,329 @@
+IQ-TREE multicore version 1.6.12 for Mac OS X 64-bit built Aug 15 2019
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    lamarck (SSE4.2, 64 GB RAM)
+Command: /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/iqtree -s /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/448_269_ar_51t.fas -o Carcharhinidae -m MFP -nt 5
+Seed:    617472 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Dec  4 19:03:20 2024
+Kernel:  SSE2 - 5 threads (16 CPU cores detected)
+
+Reading alignment file /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/448_269_ar_51t.fas ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 51 sequences with 1302 columns, 1302 distinct patterns
+1298 parsimony-informative, 4 singleton sites, 0 constant sites
+                   Gap/Ambiguity  Composition  p-value
+   1  Pitheciidae          0.00%    passed     54.66%
+   2  Scandentia           0.00%    passed     13.29%
+   3  Erethizontidae       0.00%    passed     48.42%
+   4  Capromyidae          0.00%    passed     81.95%
+   5  Muridae              0.00%    passed     55.99%
+   6  Castoridae           0.00%    passed     22.31%
+   7  Suidae               0.00%    passed     51.30%
+   8  Hippopotamidae       0.00%    passed     52.10%
+   9  Hyperoodontidae      0.00%    passed     78.86%
+  10  Vespertilionidae     0.00%    passed     97.67%
+  11  Furipteridae         0.00%    passed     94.15%
+  12  Rhinolophidae        0.00%    passed     73.57%
+  13  Viverridae           0.00%    passed     91.02%
+  14  Procyonidae          0.00%    passed     53.25%
+  15  Myrmecophagidae      0.00%    passed     45.68%
+  16  Caluromyidae         0.00%    passed     91.04%
+  17  Thylacomyidae        0.00%    passed     85.91%
+  18  Phalangeridae        0.00%    passed     99.24%
+  19  Tityridae            0.00%    passed     92.75%
+  20  Ptilonorhynchidae    0.00%    passed     54.89%
+  21  Callaeatidae         0.00%    passed     85.72%
+  22  Monarchidae          0.00%    passed     43.43%
+  23  Malaconotidae        0.00%    passed     88.85%
+  24  Certhiidae           0.00%    passed     97.97%
+  25  Cinclidae            0.00%    passed     99.89%
+  26  Ploceidae            0.00%    passed     99.51%
+  27  Thraupidae           0.00%    passed     97.16%
+  28  Alaudidae            0.00%    passed     46.56%
+  29  Coraciiformes        0.00%    passed     43.41%
+  30  Crocodylidae         0.00%    passed     95.52%
+  31  Carettochelyidae     0.00%    passed     91.76%
+  32  Kinosternidae        0.00%    passed     56.75%
+  33  Anomalepididae       0.00%    passed     85.06%
+  34  Loxocemidae          0.00%    passed     75.51%
+  35  Natricidae           0.00%    passed     47.14%
+  36  Xenosauridae         0.00%    passed     88.87%
+  37  Teiidae              0.00%    passed     78.38%
+  38  Eublepharidae        0.00%    passed     47.00%
+  39  Dicamptodontidae     0.00%    passed     17.35%
+  40  Alytidae             0.00%    passed     93.10%
+  41  Heleophrynidae       0.00%    failed      2.64%
+  42  Leptodactylidae      0.00%    passed     42.51%
+  43  Strabomantidae       0.00%    passed     58.50%
+  44  Micrixalidae         0.00%    passed     44.76%
+  45  Hemisotidae          0.00%    passed     29.39%
+  46  Asterophryidae       0.00%    passed     66.48%
+  47  Caeciliidae2         0.00%    passed     15.00%
+  48  Polypteriformes      0.00%    passed     51.57%
+  49  Channichthyidae      0.00%    passed     30.08%
+  50  Pseudaphritidae      0.00%    passed     26.64%
+  51  Carcharhinidae       0.00%    passed     90.12%
+****  TOTAL                0.00%  1 sequences failed composition chi2 test (p-value<5%; df=3)
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.004 seconds
+NOTE: ModelFinder requires 21 MB RAM!
+ModelFinder will test 484 DNA models (sample size: 1302) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  JC            40804.664    99  81807.327    81823.800    82319.321
+  2  JC+ASC        40804.330    99  81806.660    81823.132    82318.654
+  3  JC+G4         40805.100    100 81810.200    81827.020    82327.366
+  4  JC+ASC+G4     40804.759    100 81809.518    81826.338    82326.684
+  5  JC+R2         40804.740    101 81811.479    81828.649    82333.816
+  6  JC+R3         40804.704    103 81815.407    81833.291    82348.088
+ 14  JC+ASC+R2     40804.331    101 81810.663    81827.833    82333.000
+ 15  JC+ASC+R3     40804.330    103 81814.660    81832.543    82347.341
+ 23  F81+F         40807.060    102 81818.121    81835.645    82345.630
+ 24  F81+F+ASC     40806.728    102 81817.455    81834.980    82344.964
+ 25  F81+F+G4      40807.498    103 81820.997    81838.880    82353.677
+ 26  F81+F+ASC+G4  40807.157    103 81820.314    81838.197    82352.995
+ 27  F81+F+R2      40807.060    104 81822.121    81840.366    82359.973
+ 28  F81+F+R3      40807.060    106 81826.121    81845.103    82374.316
+ 36  F81+F+ASC+R2  40806.728    104 81821.455    81839.701    82359.308
+ 37  F81+F+ASC+R3  40806.728    106 81825.455    81844.438    82373.651
+ 45  K2P           35801.725    100 71803.450    71820.270    72320.616
+ 46  K2P+ASC       35801.544    100 71803.088    71819.908    72320.254
+ 47  K2P+G4        35801.646    101 71805.292    71822.462    72327.630
+ 48  K2P+ASC+G4    35801.449    101 71804.898    71822.068    72327.236
+ 49  K2P+R2        35801.725    102 71807.450    71824.975    72334.959
+ 50  K2P+R3        35801.725    104 71811.450    71829.696    72349.303
+ 58  K2P+ASC+R2    35801.544    102 71807.088    71824.613    72334.597
+ 59  K2P+ASC+R3    35801.544    104 71811.088    71829.334    72348.941
+ 67  HKY+F         35798.604    103 71803.207    71821.091    72335.888
+ 68  HKY+F+ASC     35798.419    103 71802.839    71820.722    72335.519
+ 69  HKY+F+G4      35798.530    104 71805.060    71823.306    72342.912
+ 70  HKY+F+ASC+G4  35798.331    104 71804.662    71822.907    72342.514
+ 71  HKY+F+R2      35798.604    105 71807.207    71825.819    72350.231
+ 72  HKY+F+R3      35798.604    107 71811.207    71830.564    72364.574
+ 80  HKY+F+ASC+R2  35798.419    105 71806.839    71825.451    72349.863
+ 81  HKY+F+ASC+R3  35798.419    107 71810.838    71830.195    72364.206
+ 89  TNe           35801.717    101 71805.433    71822.603    72327.771
+ 90  TNe+ASC       35801.535    101 71805.070    71822.240    72327.407
+ 91  TNe+G4        35801.638    102 71807.276    71824.801    72334.785
+ 92  TNe+ASC+G4    35801.442    102 71806.883    71824.408    72334.392
+ 93  TNe+R2        35801.716    103 71809.432    71827.315    72342.112
+ 94  TNe+R3        35801.716    105 71813.432    71832.044    72356.456
+102  TNe+ASC+R2    35801.535    103 71809.070    71826.953    72341.750
+103  TNe+ASC+R3    35801.535    105 71813.069    71831.681    72356.093
+111  TN+F          35798.600    104 71805.200    71823.446    72343.052
+112  TN+F+ASC      35798.415    104 71804.829    71823.075    72342.682
+113  TN+F+G4       35798.525    105 71807.049    71825.661    72350.073
+114  TN+F+ASC+G4   35798.325    105 71806.650    71825.262    72349.674
+115  TN+F+R2       35798.599    106 71809.198    71828.180    72357.393
+116  TN+F+R3       35798.599    108 71813.198    71832.933    72371.737
+124  TN+F+ASC+R2   35798.415    106 71808.829    71827.812    72357.025
+125  TN+F+ASC+R3   35798.414    108 71812.829    71832.564    72371.368
+133  K3P           35801.656    101 71805.313    71822.483    72327.650
+134  K3P+ASC       35801.475    101 71804.951    71822.121    72327.288
+135  K3P+G4        35801.574    102 71807.148    71824.672    72334.657
+136  K3P+ASC+G4    35801.377    102 71806.754    71824.279    72334.263
+137  K3P+R2        35801.656    103 71809.312    71827.196    72341.993
+138  K3P+R3        35801.656    105 71813.312    71831.924    72356.336
+146  K3P+ASC+R2    35801.475    103 71808.951    71826.834    72341.631
+147  K3P+ASC+R3    35801.475    105 71812.950    71831.562    72355.974
+155  K3Pu+F        35798.521    104 71805.042    71823.288    72342.894
+156  K3Pu+F+ASC    35798.337    104 71804.673    71822.919    72342.526
+157  K3Pu+F+G4     35798.445    105 71806.890    71825.502    72349.914
+158  K3Pu+F+ASC+G4 35798.245    105 71806.491    71825.103    72349.515
+159  K3Pu+F+R2     35798.521    106 71809.042    71828.024    72357.238
+160  K3Pu+F+R3     35798.521    108 71813.042    71832.777    72371.581
+168  K3Pu+F+ASC+R2 35798.337    106 71808.673    71827.656    72356.869
+169  K3Pu+F+ASC+R3 35798.337    108 71812.673    71832.408    72371.212
+177  TPM2+F        35797.545    104 71803.090    71821.336    72340.943
+178  TPM2+F+ASC    35797.359    104 71802.718    71820.964    72340.570
+179  TPM2+F+G4     35797.467    105 71804.934    71823.546    72347.958
+180  TPM2+F+ASC+G4 35797.265    105 71804.530    71823.142    72347.554
+181  TPM2+F+R2     35797.545    106 71807.090    71826.073    72355.286
+182  TPM2+F+R3     35797.545    108 71811.090    71830.825    72369.629
+190  TPM2+F+ASC+R2 35797.359    106 71806.718    71825.700    72354.914
+191  TPM2+F+ASC+R3 35797.359    108 71810.718    71830.453    72369.257
+199  TPM2u+F       35797.545    104 71803.090    71821.336    72340.943
+200  TPM2u+F+ASC   35797.359    104 71802.718    71820.964    72340.570
+201  TPM2u+F+G4    35797.467    105 71804.934    71823.546    72347.958
+202  TPM2u+F+ASC+G4 35797.265    105 71804.530    71823.142    72347.554
+203  TPM2u+F+R2    35797.545    106 71807.090    71826.073    72355.286
+204  TPM2u+F+R3    35797.545    108 71811.090    71830.825    72369.629
+212  TPM2u+F+ASC+R2 35797.359    106 71806.718    71825.700    72354.914
+213  TPM2u+F+ASC+R3 35797.359    108 71810.718    71830.453    72369.257
+221  TPM3+F        35798.499    104 71804.999    71823.244    72342.851
+222  TPM3+F+ASC    35798.315    104 71804.630    71822.875    72342.482
+223  TPM3+F+G4     35798.427    105 71806.854    71825.466    72349.878
+224  TPM3+F+ASC+G4 35798.228    105 71806.456    71825.068    72349.480
+225  TPM3+F+R2     35798.499    106 71808.999    71827.981    72357.194
+226  TPM3+F+R3     35798.499    108 71812.998    71832.733    72371.537
+234  TPM3+F+ASC+R2 35798.315    106 71808.630    71827.612    72356.825
+235  TPM3+F+ASC+R3 35798.315    108 71812.629    71832.364    72371.168
+243  TPM3u+F       35798.499    104 71804.999    71823.244    72342.851
+244  TPM3u+F+ASC   35798.315    104 71804.630    71822.875    72342.482
+245  TPM3u+F+G4    35798.427    105 71806.854    71825.467    72349.878
+246  TPM3u+F+ASC+G4 35798.228    105 71806.456    71825.068    72349.480
+247  TPM3u+F+R2    35798.499    106 71808.999    71827.981    72357.194
+248  TPM3u+F+R3    35798.499    108 71812.998    71832.733    72371.537
+256  TPM3u+F+ASC+R2 35798.315    106 71808.630    71827.612    72356.825
+257  TPM3u+F+ASC+R3 35798.315    108 71812.629    71832.364    72371.168
+265  TIMe          35801.649    102 71807.297    71824.822    72334.806
+266  TIMe+ASC      35801.467    102 71806.934    71824.459    72334.443
+267  TIMe+G4       35801.569    103 71809.137    71827.020    72341.818
+268  TIMe+ASC+G4   35801.371    103 71808.743    71826.626    72341.424
+269  TIMe+R2       35801.647    104 71811.295    71829.540    72349.147
+270  TIMe+R3       35801.647    106 71815.294    71834.276    72363.490
+278  TIMe+ASC+R2   35801.466    104 71810.932    71829.178    72348.785
+279  TIMe+ASC+R3   35801.466    106 71814.932    71833.914    72363.127
+287  TIM+F         35798.516    105 71807.033    71825.645    72350.057
+288  TIM+F+ASC     35798.332    105 71806.664    71825.276    72349.688
+289  TIM+F+G4      35798.439    106 71808.879    71827.861    72357.074
+290  TIM+F+ASC+G4  35798.240    106 71808.479    71827.462    72356.675
+291  TIM+F+R2      35798.516    107 71811.033    71830.389    72364.400
+292  TIM+F+R3      35798.516    109 71815.032    71835.150    72378.743
+300  TIM+F+ASC+R2  35798.332    107 71810.664    71830.021    72364.031
+301  TIM+F+ASC+R3  35798.332    109 71814.663    71834.781    72378.374
+309  TIM2e         35801.346    102 71806.693    71824.218    72334.202
+310  TIM2e+ASC     35801.165    102 71806.331    71823.855    72333.840
+311  TIM2e+G4      35801.271    103 71808.542    71826.425    72341.222
+312  TIM2e+ASC+G4  35801.075    103 71808.149    71826.033    72340.830
+313  TIM2e+R2      35801.346    104 71810.693    71828.939    72348.545
+314  TIM2e+R3      35801.346    106 71814.692    71833.675    72362.888
+322  TIM2e+ASC+R2  35801.165    104 71810.331    71828.576    72348.183
+323  TIM2e+ASC+R3  35801.165    106 71814.330    71833.313    72362.526
+331  TIM2+F        35797.540    105 71805.080    71823.692    72348.104
+332  TIM2+F+ASC    35797.354    105 71804.707    71823.319    72347.731
+333  TIM2+F+G4     35797.460    106 71806.920    71825.903    72355.116
+334  TIM2+F+ASC+G4 35797.258    106 71806.517    71825.499    72354.712
+335  TIM2+F+R2     35797.540    107 71809.079    71828.436    72362.447
+336  TIM2+F+R3     35797.539    109 71813.079    71833.196    72376.789
+344  TIM2+F+ASC+R2 35797.354    107 71808.707    71828.064    72362.074
+345  TIM2+F+ASC+R3 35797.353    109 71812.706    71832.824    72376.417
+353  TIM3e         35801.707    102 71807.414    71824.939    72334.923
+354  TIM3e+ASC     35801.525    102 71807.051    71824.575    72334.560
+355  TIM3e+G4      35801.633    103 71809.265    71827.149    72341.946
+356  TIM3e+ASC+G4  35801.436    103 71808.873    71826.756    72341.554
+357  TIM3e+R2      35801.704    104 71811.407    71829.653    72349.259
+358  TIM3e+R3      35801.702    106 71815.404    71834.386    72363.599
+366  TIM3e+ASC+R2  35801.521    104 71811.042    71829.288    72348.894
+367  TIM3e+ASC+R3  35801.521    106 71815.041    71834.024    72363.237
+375  TIM3+F        35798.495    105 71806.990    71825.602    72350.014
+376  TIM3+F+ASC    35798.310    105 71806.621    71825.233    72349.645
+377  TIM3+F+G4     35798.423    106 71808.845    71827.828    72357.041
+378  TIM3+F+ASC+G4 35798.223    106 71808.446    71827.429    72356.642
+379  TIM3+F+R2     35798.495    107 71810.990    71830.347    72364.357
+380  TIM3+F+R3     35798.494    109 71814.989    71835.106    72378.700
+388  TIM3+F+ASC+R2 35798.310    107 71810.621    71829.977    72363.988
+389  TIM3+F+ASC+R3 35798.310    109 71814.620    71834.737    72378.330
+397  TVMe          35801.275    103 71808.549    71826.433    72341.230
+398  TVMe+ASC      35801.094    103 71808.187    71826.071    72340.868
+399  TVMe+G4       35801.195    104 71810.390    71828.636    72348.243
+400  TVMe+ASC+G4   35800.999    104 71809.998    71828.243    72347.850
+401  TVMe+R2       35801.275    105 71812.549    71831.161    72355.573
+402  TVMe+R3       35801.274    107 71816.548    71835.905    72369.916
+410  TVMe+ASC+R2   35801.094    105 71812.187    71830.799    72355.211
+411  TVMe+ASC+R3   35801.093    107 71816.186    71835.543    72369.554
+419  TVM+F         35797.389    106 71806.779    71825.761    72354.975
+420  TVM+F+ASC     35797.203    106 71806.406    71825.388    72354.602
+421  TVM+F+G4      35797.307    107 71808.614    71827.971    72361.982
+422  TVM+F+ASC+G4  35797.105    107 71808.210    71827.566    72361.577
+423  TVM+F+R2      35797.388    108 71810.776    71830.511    72369.315
+424  TVM+F+R3      35797.387    110 71814.773    71835.277    72383.655
+432  TVM+F+ASC+R2  35797.200    108 71810.401    71830.136    72368.940
+433  TVM+F+ASC+R3  35797.200    110 71814.399    71834.903    72383.281
+441  SYM           35801.268    104 71810.536    71828.782    72348.388
+442  SYM+ASC       35801.085    104 71810.170    71828.416    72348.023
+443  SYM+G4        35801.188    105 71812.376    71830.988    72355.400
+444  SYM+ASC+G4    35800.991    105 71811.983    71830.595    72355.007
+445  SYM+R2        35801.265    106 71814.531    71833.513    72362.726
+446  SYM+R3        35801.265    108 71818.530    71838.265    72377.069
+454  SYM+ASC+R2    35801.084    106 71814.168    71833.151    72362.364
+455  SYM+ASC+R3    35801.083    108 71818.167    71837.902    72376.706
+463  GTR+F         35797.379    107 71808.758    71828.115    72362.125
+464  GTR+F+ASC     35797.193    107 71808.385    71827.742    72361.752
+465  GTR+F+G4      35797.296    108 71810.591    71830.326    72369.130
+466  GTR+F+ASC+G4  35797.093    108 71810.187    71829.922    72368.726
+467  GTR+F+R2      35797.378    109 71812.756    71832.874    72376.467
+468  GTR+F+R3      35797.377    111 71816.755    71837.649    72390.809
+476  GTR+F+ASC+R2  35797.192    109 71812.383    71832.501    72376.094
+477  GTR+F+ASC+R3  35797.191    111 71816.382    71837.276    72390.436
+Akaike Information Criterion:           TPM2u+F+ASC
+Corrected Akaike Information Criterion: K2P+ASC
+Bayesian Information Criterion:         K2P+ASC
+Best-fit model: K2P+ASC chosen according to BIC
+
+All model information printed to /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/448_269_ar_51t.fas.model.gz
+CPU time for ModelFinder: 9.034 seconds (0h:0m:9s)
+Wall-clock time for ModelFinder: 1.831 seconds (0h:0m:1s)
+
+NOTE: 2 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -40912.031
+2. Current log-likelihood: -35873.673
+3. Current log-likelihood: -35801.902
+4. Current log-likelihood: -35801.548
+Optimal log-likelihood: -35801.544
+Rate parameters:  A-C: 1.00000  A-G: 11.78670  A-T: 1.00000  C-G: 1.00000  C-T: 11.78670  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 4 rounds (0.025 sec)
+Computing ML distances based on estimated model parameters... 0.025 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -35830.976
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.379 second
+Computing log-likelihood of 98 initial trees ... 0.374 seconds
+Current best score: -35801.544
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -35796.351
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 9: -35789.847
+Iteration 10 / LogL: -35796.473 / Time: 0h:0m:0s
+Iteration 20 / LogL: -35789.924 / Time: 0h:0m:1s
+Finish initializing candidate tree set (2)
+Current best tree score: -35789.847 / CPU time: 1.209
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -35796.549 / Time: 0h:0m:1s (0h:0m:4s left)
+Iteration 40 / LogL: -35789.976 / Time: 0h:0m:1s (0h:0m:3s left)
+Iteration 50 / LogL: -35796.478 / Time: 0h:0m:2s (0h:0m:2s left)
+Iteration 60 / LogL: -35840.886 / Time: 0h:0m:2s (0h:0m:2s left)
+Iteration 70 / LogL: -35790.376 / Time: 0h:0m:3s (0h:0m:1s left)
+Iteration 80 / LogL: -35789.849 / Time: 0h:0m:3s (0h:0m:1s left)
+Iteration 90 / LogL: -35840.784 / Time: 0h:0m:3s (0h:0m:0s left)
+Iteration 100 / LogL: -35789.877 / Time: 0h:0m:4s (0h:0m:0s left)
+Iteration 110 / LogL: -35789.868 / Time: 0h:0m:4s (0h:0m:-1s left)
+TREE SEARCH COMPLETED AFTER 110 ITERATIONS / Time: 0h:0m:4s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -35789.847
+Optimal log-likelihood: -35789.846
+Rate parameters:  A-C: 1.00000  A-G: 11.81305  A-T: 1.00000  C-G: 1.00000  C-T: 11.81305  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.003 sec)
+BEST SCORE FOUND : -35789.846
+Total tree length: 9.913
+
+Total number of iterations: 110
+CPU time used for tree search: 22.020 sec (0h:0m:22s)
+Wall-clock time used for tree search: 4.556 sec (0h:0m:4s)
+Total CPU time used: 22.263 sec (0h:0m:22s)
+Total wall-clock time used: 4.605 sec (0h:0m:4s)
+
+Analysis results written to: 
+  IQ-TREE report:                /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/448_269_ar_51t.fas.iqtree
+  Maximum-likelihood tree:       /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/448_269_ar_51t.fas.treefile
+  Likelihood distances:          /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/448_269_ar_51t.fas.mldist
+  Screen log file:               /Users/barba/Desktop/rggs-copmarative_genomics_2_course/session_14/phylogenetic_analysis_tutorial/iqtree_gene_trees/448_269_ar_51t.fas.log
+
+Date and Time: Wed Dec  4 19:03:27 2024
