@@ -10,7 +10,7 @@
 #PBS -o /home/jbarba/HPL_RUNS/output_file.txt
 #PBS -l ncpus=10
 #PBS -l mem=100G
-#PBS -l walltime=175:00:00
+#PBS -l walltime=250:00:00
 cd $PBS_O_WORKDIR
 echo Working directory is $PBS_O_WORKDIR
 
