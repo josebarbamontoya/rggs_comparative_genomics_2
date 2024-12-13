@@ -1,4 +1,4 @@
-# Session 14 outline
+# Session 15 outline
 
 * ## GitHub tutorial Due
 * ## Final project presentations
