@@ -11,8 +11,8 @@
 
        * **Joseph Won** - Using Phylogenomic Data to Resolve the Hominoid Trichotomy (https://github.com/josephwon3/CG2-FINAL-REPO).
     
-       * **Katherine Montana** - Phylogeny of the dragonfly genus Erythemis Hagen, 1861 (Anisoptera: Odonata) (private repoitory).
+       * **Katherine Montana** - Phylogeny of the Dragonfly Genus Erythemis Hagen, 1861 (Anisoptera: Odonata) (private repoitory).
     
-       * **Lina Raubold** - Sea slug Prey Preference Detection Through Metagenomic Analyses of Gut Contents (private repository).
+       * **Lina Raubold** - Sea Slug Prey Preference Detection Through Metagenomic Analyses of Gut Contents (private repository).
       
-       * **Violet Onsongo** - Evolutionary relationships of genus Orthetrum, Newman, 1833 (private repository). 
+       * **Violet Onsongo** - Evolutionary Relationships of Genus Orthetrum, Newman, 1833 (private repository). 
